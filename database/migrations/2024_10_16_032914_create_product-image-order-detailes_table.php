@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('product-image-order-detailes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_images_id')->constrained();
-            $table->foreignId('order_details_id')->constrained();
+            $table->foreignId('product-image_id')->constrained();
+            $table->foreignId('order-detail_id')->constrained();
             $table->timestamps();
         });
     }
