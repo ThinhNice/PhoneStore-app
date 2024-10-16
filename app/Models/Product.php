@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
+    public function productImages() 
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+
+    public function statistics() 
+    {
+        return $this->hasMany(Statistic::class);
+    }
+
+    public function categories() 
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

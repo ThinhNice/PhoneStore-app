@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class OrderDetail extends Model
 {
     use HasFactory;
+
+    public function productImages() 
+    {
+        return $this->belongsToMany(ProductImage::class);
+    }
+    
+    public function orders() 
+    {
+        return $this->belongsTo(Order::class);
+    }
 }
