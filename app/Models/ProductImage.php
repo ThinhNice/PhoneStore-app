@@ -9,6 +9,11 @@ class ProductImage extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'product_id',
+        'image_url',
+    ];
+
     public function orderDetails() 
     {
         return $this->belongsToMany(OrderDetail::class);

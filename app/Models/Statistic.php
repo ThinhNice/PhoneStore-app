@@ -9,6 +9,12 @@ class Statistic extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'product_id',
+        'order_id',
+        'total_order',
+    ];
+
     public function orders() 
     {
         return $this->belongsTo(Order::class);

@@ -20,7 +20,10 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
+        'email_verified_at',
         'password',
+        'role',
     ];
 
     public function orders()

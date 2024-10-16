@@ -9,6 +9,11 @@ class ProductImageOrderDetail extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'product-image_id',
+        'order-detail_id',
+    ];
+
     public function productImages()
     {
         return $this->belongsTo(ProductImage::class);
