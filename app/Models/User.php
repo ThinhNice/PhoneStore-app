@@ -18,18 +18,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'fullname',
+        'name',
         'username',
         'email',
         'phone',
         'password',
         'role',
     ];
-
-    public function orders()
-    {
-        return $this->hasMany(Order::class);
-    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -42,15 +37,20 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * The attributes that should be cast to native types.
      *
-     * @return array<string, string>
+     * @var array<string, string>
      */
-    protected function casts(): array
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed', // Laravel 8+ hỗ trợ tự động hash mật khẩu
+    ];
+
+    /**
+     * Relationship with Order model.
+     */
+    public function orders()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->hasMany(Order::class);
     }
 }
