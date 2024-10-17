@@ -17,12 +17,12 @@ class OrderDetail extends Model
         'price',
     ];
 
-    public function productImages() 
+    public function productImage() 
     {
         return $this->belongsToMany(ProductImage::class);
     }
     
-    public function orders() 
+    public function order() 
     {
         return $this->belongsTo(Order::class);
     }

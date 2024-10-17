@@ -14,12 +14,12 @@ class ProductImageOrderDetail extends Model
         'order_detail_id',
     ];
 
-    public function productImages()
+    public function productImage()
     {
         return $this->belongsTo(ProductImage::class);
     }
 
-    public function orderDetails()
+    public function orderDetail()
     {
         return $this->belongsTo(OrderDetail::class);
     }

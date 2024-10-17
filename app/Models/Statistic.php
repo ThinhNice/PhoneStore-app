@@ -15,7 +15,7 @@ class Statistic extends Model
         'total_order',
     ];
 
-    public function orders() 
+    public function order() 
     {
         return $this->belongsTo(Order::class);
     }
