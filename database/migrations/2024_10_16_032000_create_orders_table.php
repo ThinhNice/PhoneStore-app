@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('email');
             $table->string('received_address', 255);
             $table->string('phone', 20);
-            $table->string('order_code', 20);
-            $table->decimal('total_amount', 10, 2);
-            $table->integer('status')->default(1);
-            $table->integer('payment_method')->default(1);
+            $table->string('order_code', 20)->unique();
+            $table->decimal('total_amount', 20, 2);
+            $table->integer('status')->default(0);
+            $table->integer('payment_method')->default(0);
             $table->timestamps();
         });
     }

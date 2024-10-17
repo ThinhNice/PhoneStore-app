@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('product_img', 50);
             $table->string('cur_pr_name', 50);
             $table->integer('quantity');
-            $table->decimal('cur_pr_price', 10, 2);
+            $table->decimal('cur_pr_price', 20, 2);
             $table->timestamps();
         });
     }
