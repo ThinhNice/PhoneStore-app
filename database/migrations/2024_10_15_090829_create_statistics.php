@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('order_id');
             $table->foreign('product_id','fk_stat_products')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('order_id','fk_stat_orders')->references('id')->on('orders')->onDelete('cascade');
-            $table->decimal('total_order', 10, 2)->nullable();
+            $table->decimal('total_order', 20, 2)->nullable();
             $table->timestamps();
         });
     }
@@ -28,9 +28,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('statistics', function (Blueprint $table){
-            $table->dropForeign(['product_id']);
-            $table->dropForeign(['order_id']);
+            $table->dropForeign('fk_stat_products');
+            $table->dropForeign('fk_stat_orders');
         });
-        Schema::dropIfExists('statistic');
+        Schema::dropIfExists('statistics');
     }
 };

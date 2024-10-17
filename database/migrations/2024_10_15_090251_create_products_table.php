@@ -33,7 +33,7 @@ return new class extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             // Drop foreign key constraint for categories
-            $table->dropForeign(['category_id']);
+            $table->dropForeign('fk_products_category');
         });
 
         Schema::dropIfExists('products');

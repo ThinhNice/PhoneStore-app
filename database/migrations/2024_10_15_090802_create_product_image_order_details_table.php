@@ -26,9 +26,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('product_image_order_detail', function (Blueprint $table){
-            $table->dropForeign(['product_image_id']);
-            $table->dropForeign(['order_detail_id']);
+        Schema::table('product_image_order_details', function (Blueprint $table){
+            $table->dropForeign('fk_img_order_product_image');
+            $table->dropForeign('fk_img_order_order_detail');
         });
         Schema::dropIfExists('product_image_order_details');
     }

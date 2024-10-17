@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password', 255)->collation('utf8mb4_general_ci')->nullable(false);
             $table->string('email', 255)->collation('utf8mb4_general_ci')->nullable(false)->unique();
             $table->string('phone', 20)->collation('utf8mb4_general_ci')->nullable(false);
-            $table->integer('role')->collation('utf8mb4_general_ci')->nullable(false);
+            $table->integer('role')->collation('utf8mb4_general_ci')->nullable(false)->default(0);
             $table->timestamps();
         });
     }
