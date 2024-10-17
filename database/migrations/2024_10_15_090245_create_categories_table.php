@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Ramsey\Uuid\Type\Decimal;
 
 return new class extends Migration
 {
@@ -12,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order-details', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->constrained();
-            $table->string('product_img', 50);
-            $table->string('cur_pr_name', 50);
-            $table->integer('quantity');
-            $table->decimal('cur_pr_price', 20, 2);
+            $table->string('name', 255)->collation('utf8mb4_general_ci')->nullable(false)->unique();
             $table->timestamps();
         });
     }
@@ -28,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order-details');
+        Schema::dropIfExists('categories');
     }
 };

@@ -12,9 +12,9 @@ class OrderDetail extends Model
     protected $fillable = [
         'order_id',
         'product_img',
-        'cur_pr_name',
+        'product_name',
         'quantity',
-        'cur_pr_price',
+        'price',
     ];
 
     public function productImages() 
