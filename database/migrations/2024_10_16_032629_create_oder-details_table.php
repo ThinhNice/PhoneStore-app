@@ -15,10 +15,10 @@ return new class extends Migration
         Schema::create('order-details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained();
-            $table->string('product_img',50);
-            $table->string('cur_pr_name',50);
+            $table->string('product_img', 50);
+            $table->string('cur_pr_name', 50);
             $table->integer('quantity');
-            $table->decimal('cur_pr_price',10,2);
+            $table->decimal('cur_pr_price', 10, 2);
             $table->timestamps();
         });
     }
