@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('phone',255)->collation('utf8mb4_general_ci')->nullable(false);
             $table->string('received_address',255)->collation('utf8mb4_general_ci')->nullable(false);
             $table->unsignedInteger('payment_method')->default(0);
-            $table->unsignedInteger('status')->nullable()->default(null);
+            $table->unsignedInteger('status')->nullable()->default(0);
+
             $table->decimal('total_amount',20,2)->nullable()->default(null);
             $table->string('order_code',20)->collation('utf8mb4_general_ci')->nullable(false)->index();
 

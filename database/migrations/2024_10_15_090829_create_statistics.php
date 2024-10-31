@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('statistics', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id');
+            $table->string('product_name', 50)->collation('utf8mb4_general_ci')->nullable(false);
             $table->unsignedBigInteger('order_id');
-            $table->foreign('product_id','fk_stat_products')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('order_id','fk_stat_orders')->references('id')->on('orders')->onDelete('cascade');
             $table->decimal('total_order', 20, 2)->nullable();
             $table->timestamps();
@@ -28,7 +27,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('statistics', function (Blueprint $table){
-            $table->dropForeign('fk_stat_products');
+            
             $table->dropForeign('fk_stat_orders');
         });
         Schema::dropIfExists('statistics');

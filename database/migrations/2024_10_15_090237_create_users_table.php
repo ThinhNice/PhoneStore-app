@@ -16,8 +16,10 @@ return new class extends Migration
             $table->string('name', 50)->collation('utf8mb4_general_ci')->nullable(false);
             $table->string('password', 255)->collation('utf8mb4_general_ci')->nullable(false);
             $table->string('email', 255)->collation('utf8mb4_general_ci')->nullable(false)->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('phone', 20)->collation('utf8mb4_general_ci')->nullable();
             $table->integer('role')->collation('utf8mb4_general_ci')->nullable()->default(0);
+            //0 - user, 1 - admin
             $table->rememberToken();
             $table->timestamps();
         });

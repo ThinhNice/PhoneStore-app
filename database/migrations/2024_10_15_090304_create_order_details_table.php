@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('product_name', 50)->collation('utf8mb4_general_ci')->nullable(false);
             $table->string('product_img')->collation('utf8mb4_general_ci')->default(null);
             $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id','fk_details_order')->references('id')->on('orders');
+            $table->foreign('order_id','fk_details_order')->references('id')->on('orders')->onDelete('cascade');
+
             $table->unsignedBigInteger('quantity')->nullable(false);
             $table->decimal('price', 20, 2)->nullable(false);
             $table->timestamps();

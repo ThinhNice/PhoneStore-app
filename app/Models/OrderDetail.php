@@ -9,6 +9,11 @@ class OrderDetail extends Model
 {
     use HasFactory;
 
+    protected $table = 'order_details';
+
+    protected $primaryKey = 'id';
+
+
     protected $fillable = [
         'order_id',
         'product_img',
@@ -17,11 +22,13 @@ class OrderDetail extends Model
         'price',
     ];
 
+
     public function productImage() 
     {
         return $this->belongsToMany(ProductImage::class);
     }
     
+
     public function order() 
     {
         return $this->belongsTo(Order::class);

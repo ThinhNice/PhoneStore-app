@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+    protected $table = 'orders';
+
+    protected $primaryKey = 'id';
+
 
     protected $fillable = [
         'user_id',
@@ -20,7 +24,10 @@ class Order extends Model
         'status',
         'payment_method',
     ];
+
+
     public function user() 
+
     {
         return $this->belongsTo(User::class);
     }
